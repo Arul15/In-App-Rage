@@ -33,7 +33,13 @@
     _priceFormatter = [[NSNumberFormatter alloc] init];
     [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+ 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonItemStyleBordered target:self action:@selector(restoreTapped:)];
     
+}
+
+- (void)restoreTapped:(id)sender {
+    [[RageIAPHelper sharedInstance] restoreCompletedTransactions];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
